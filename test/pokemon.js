@@ -1,12 +1,12 @@
 const chai = require('chai');
 const supertest = require('supertest');
-const app = require('../server');
+const app = require('../server.js');
 const should = chai.should()
 const cheerio = require('cheerio');
 
 describe('RESTful pokemon routes', function(){
     it('displays all pokemon at the index route', function(done){
-        supertest(app)
+        supertest(app) 
             .get('/pokemon')
             .expect(200)
             .expect((response)=>{
@@ -108,3 +108,4 @@ describe('RESTful pokemon routes', function(){
         })
     })
 })
+

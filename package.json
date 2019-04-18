@@ -15,10 +15,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
+    "pokemon": "^1.2.3",
     "supertest": "^3.4.2"
   }
 }
