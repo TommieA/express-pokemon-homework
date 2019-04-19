@@ -11,11 +11,12 @@ const port       = 3000;
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public'))
 
 // db
 
 const pokemon = require('./pokemon');
-console.log(pokemon);
+
 // index route
 app.get('/pokemon', (req, res) => {
     res.render('index.ejs', {
