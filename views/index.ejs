@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Pokemen</h1>
-    <ul>
-        <% for (let i = 0; i < pokemon.length; i++){ %>
-            <li><a href="/pokemon/<%= i %>"><%= pokemon[i].name %></a></li>
-        <% } %>
-    </ul>
-</body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/css/app.css">
+    </head>
+    <body>
+        <h1>Pokemon index page</h1>
+        <ul>
+            <% for(let i = 0; i < pokemon.length; i++){ %>
+                <li>
+                    The <a href="/pokemon/<%=pokemon[i]._id%>"><%=pokemon[i].name; %>
+                    <% } %>
+
+                    <a href="/pokemon/<%=pokemon[i].id; %>/edit">Edit</a>
+
+                    <form action="/pokemon/<%=pokemon[i]._id%>?_method=DELETE" method="POST">
+                      <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+        <nav>
+            <a href="/pokemon/new">Create a New Pokemon</a>
+        </nav>
+    </body>
 </html>

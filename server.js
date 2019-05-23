@@ -1,8 +1,9 @@
-const express    = require('express');
-const bodyParser = require('body-parser');
-const app        = express();
+const express           = require('express');
+const bodyParser        = require('body-parser');
+const methodOverride    = require('method-override');
+const app               = express();
 
-const port       = 3000;
+const port              = 3000;
 
 // app.get('/pokemon', (req, res) => {
 //     res.send("Got pokemon");
@@ -11,10 +12,9 @@ const port       = 3000;
 // middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 // db
-
 const pokemon = require('./pokemon');
 
 // index route
@@ -26,12 +26,25 @@ app.get('/pokemon', (req, res) => {
  
 // show route
 app.get('/pokemon/:id', (req, res) => {
-    res.render('show.ejs', {'pokemon': pokemon[req.params.id]
+    res.render('show.ejs', {
+      'pokemon': pokemon[req.params.id]
     });
   });
- 
-// Listener
 
+// new route
+app.post('/pokemon/', (reg, res) => {
+    res.render('new.ejs', { 
+    });
+});
+
+// Delete route
+app.get('/pokemon/:id', (reg, res) => {
+    res.render('delete.ejs', {
+      'pokemon': pokemon[req.params.id]
+    });
+});
+
+// Listener
 app.listen(port, function() {
   console.log("App is running on port: ", port);
 });
