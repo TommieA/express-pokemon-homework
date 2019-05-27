@@ -3,26 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/main.css">
     </head>
     <body>
         <h1>Pokemon index page</h1>
         <ul>
-            <% for(let i = 0; i < pokemon.length; i++){ %>
-                <li>
-                    The <a href="/pokemon/<%=pokemon[i]._id%>"><%=pokemon[i].name; %>
-                    <% } %>
+            <%	for (let i = 0; i < pokemon.length; i++){ %>    
+				<li><a href="/pokemon/<%=i%>"><%=pokemon[i].name%></a></li>
+		    <%  } %>
+        </ul><br>
 
-                    <a href="/pokemon/<%=pokemon[i].id; %>/edit">Edit</a>
-
-                    <form action="/pokemon/<%=pokemon[i]._id%>?_method=DELETE" method="POST">
-                      <button type="submit">Delete</button>
-                    </form>
-                </li>
-            <% } %>
-        </ul>
-        <nav>
-            <a href="/pokemon/new">Create a New Pokemon</a>
-        </nav>
+        <a href="/pokemon/new">Create a New Pokemon</a>
+      
     </body>
 </html>
